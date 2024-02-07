@@ -1,0 +1,926 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        *{
+            font-family: 'Inter', sans-serif;
+
+        }
+        .wrapper {
+        /* padding: 35px; */
+        position: relative;
+        overflow-x: hidden;
+        /* max-width: 100%; */
+        /* background: red; */
+        /* border-radius: 13px; */
+
+        }
+        .wrapper .icon {
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 80px;
+        display: flex;
+        align-items: center;
+        }
+        .icon:first-child {
+        left: 0;
+        display: none;
+        background: linear-gradient(90deg, #fff 70%, transparent);
+        }
+        .icon:last-child {
+        right: 0;
+        justify-content: flex-end;
+        background: linear-gradient(-90deg, #fff 70%, transparent);
+        }
+        .icon i {
+        width: 55px;
+        height: 55px;
+        cursor: pointer;
+        font-size: 10px;
+        text-align: center;
+        line-height: 55px;
+        border-radius: 50%;
+        }
+        .icon i:hover {
+        background: #efedfb;
+        }
+        .icon:first-child i {
+        margin-left: 0px;
+        } 
+        .icon:last-child i {
+        margin-right: 0px;
+        } 
+        .wrapper .tabs-box {
+        display: flex;
+        gap: 5px;
+        list-style: none;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+        }
+        .tabs-box.dragging {
+        scroll-behavior: auto;
+        cursor: grab;
+        }
+        .tabs-box .tab {
+        cursor: pointer;
+        font-size: 12px;
+        white-space: nowrap;
+        background: #fff;
+        padding: 13px 20px;
+        border-radius: 30px;
+        border: 1px solid #d8d5f2;
+        }
+        .tabs-box .tab:hover{
+        background: #efedfb;
+        }
+        .tabs-box.dragging .tab {
+        user-select: none;
+        pointer-events: none;
+        }
+        .tabs-box .tab.active{
+        color: #fff;
+        background: #4DC3E2;
+        border-color: transparent;
+        }
+
+        /* swiper */
+
+        .swiper-container {
+        width: 100%;
+        height: 100%;
+        }
+
+        .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+
+        .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        /* object-fit: cover; */
+        }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="trending-news bg-dark pb-3 pt-3 mb-3 fixed-top" id="trending-news">
+        <div class="container">
+            <div class="row d-flex align-items-center">
+                <div class="col-lg-10">
+                    <div class="row">
+                        <div class="col d-flex align-items-center">
+                            <span class="badge text-bg-danger me-2">TRENDING NEWS</span>
+                            <marquee behavior="" direction="" class="text-white" style="font-size: 13px;"" scrollamount="4">Yuk, Kenali Warna-Warni Surat Suara Pemilu Damai 2024</marquee>
+                            <!-- <div class="text-white position-relative w-100"><p class="position-absolute top-50 start-0 translate-middle-y fw-bolder" style="font-size: 13px;">Yuk, Kenali Warna-Warni Surat Suara Pemilu Damai 2024</p></div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 d-none d-lg-block d-xl-block" style="text-align: right;">
+                    <i class="fa-brands fa-facebook-f text-secondary ms-2" style="font-size: 15px;"></i>
+                    <i class="fa-brands fa-twitter text-secondary ms-2" style="font-size: 15px;"></i>
+                    <i class="fa-brands fa-instagram text-secondary ms-2" style="font-size: 15px;"></i>
+                    <i class="fa-brands fa-youtube text-secondary ms-2" style="font-size: 15px;"></i>
+                    <i class="fa-brands fa-tiktok text-secondary ms-2" style="font-size: 15px;"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="header" style="margin-top: 70px;">
+        <div class="container">
+            <div class="baris d-flex align-items-center">
+                <div class="kolom me-5">
+                    <img src="logo.png" alt="" placeholder="mau baca berita apa hari ini?" class="img-fluid" style="width: 300px;">
+                </div>
+                <div class="kolom  w-100 d-none d-sm-none d-md-block">
+                    <div class="input-group">
+                        <input type="text" placeholder="Mau baca berita apa hari ini?" style="font-size: 13px;padding-top: 13px ;padding-bottom: 13px; padding-left: 25px;padding-right:40%; border-radius: 100px; border: 1px solid lightgray;" class="me-2">
+                        <button style="padding: 13px 20px; border-radius: 100px; font-size: 13px; background-color: #4DC3E2; border: none; color: white;"><i class="fa-solid fa-magnifying-glass"></i></button>
+                      </div>
+                </div>
+                <div class="kolom d-none d-lg-block d-xl-block">
+                    <a href="" style="padding: 13px 20px; border-radius: 100px; font-size: 13px; background-color: fff; border: none; color: #4DC3E2;border: 1px solid #4DC3E2; cursor: pointer; text-decoration: none;">Masuk</a>
+                    <!-- <a class="float-end fw-semibold" style="font-size: 14px; color: rgb(109, 109, 109); text-decoration: none;">MASUK</a> -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu-slider mb-2">
+        <div class="container">
+            <div class="wrapper">
+                <div class="icon"><i id="left" class="fa-solid fa-angle-left"></i></div>
+                <ul class="tabs-box" style="margin-left: -30px; padding-top: 15px;">
+                  <li class="tab active">Berita Utama</li>
+                  <li class="tab ">JavaScript</li>
+                  <li class="tab">Podcasts</li>
+                  <li class="tab">Databases</li>
+                  <li class="tab">Web Development</li>
+                  <li class="tab">Unboxing</li>
+                  <li class="tab">History</li>
+                  <li class="tab">Programming</li>
+                  <li class="tab">Gadgets</li>
+                  <li class="tab">Algorithms</li>
+                  <li class="tab">Comedy</li>
+                  <li class="tab">Gaming</li>
+                  <li class="tab">Share Market</li>
+                  <li class="tab">Smartphones</li>
+                  <li class="tab">Data Structure</li>
+                </ul>
+                <div class="icon"><i id="right" class="fa-solid fa-angle-right"></i></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="berita-utama mb-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="body border rounded">
+                        <div class="img">
+                            <img src="https://cdn0-production-images-kly.akamaized.net/8QKiciWvHs9T1kSVsTk0tMyv_gI=/0x0:3000x1687/640x358/filters:quality(75):strip_icc():format(webp):watermark(kly-media-production/assets/images/watermarks/liputan6/watermark-color-landscape-new.png,540,20,0)/kly-media-production/medias/4573580/original/053288500_1694584566-20230912AB-Turkmenistan_U-23_vs_Indonesia_U-23_73.jpg" alt="" class="w-100">
+                        </div>
+                        <div class="text p-3">
+                            <h5 style="font-size:13px;" class="text-muted">3 jam lalu</h5>
+                            <h1 class="fw-bold" style="font-size: 28px;">Sambut Piala Asia U-23 2024, Timnas Indonesia Bakal Panaskan Mesin Lewat TC di Dubai</h1>
+                            <p>Timnas Indonesia U-23 bakal segera memanaskan persaingan dalam ajang Piala Asia U-23 2024. Skuad racikan Shin Tae-yong rencananya akan melakoni persiapan lewat pemusatan latihan (TC) di Dubai jelagn kompetisi.</p>
+                            <hr>
+                        </div>
+
+                        <div class="berita-utama-lainnya p-3">
+                            <h5 class="fw-bold" style="font-size: 17px;">BERITA UTAMA LAINNYA</h5>
+
+                            <div class="swiper mt-3">
+                                <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" space-between="30"slides-per-view="3" autoplay-delay="2500" >
+                                    <swiper-slide>
+                                        <div class="swiper-card" style="padding-bottom: 35px;">
+                                            <div class="img mb-2">
+                                                <img src="https://cdn1-production-images-kly.akamaized.net/hm7YlB7O9jZC1_Lv1pOaWj_kZ1Y=/190x110/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4273495/original/086642800_1672109606-AP22359353444009.jpg" alt="" class="w-100 rounded">
+                                            </div>
+                                            <div class="text">
+                                                <span class="text-muted" style="font-size: 13px;">3 jam lalu</span>
+                                                <h5 class="fw-bolder mt-1" style="font-size: 15px;">Riwayat Kesehatan Raja Charles III, Mulai dari COVID-19 hingga</h5>
+                                            </div>
+                                        </div>
+                                    </swiper-slide>
+                                    <swiper-slide>
+                                        <div class="swiper-card" style="padding-bottom: 35px;">
+                                            <div class="img mb-2">
+                                                <img src="https://cdn1-production-images-kly.akamaized.net/hm7YlB7O9jZC1_Lv1pOaWj_kZ1Y=/190x110/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4273495/original/086642800_1672109606-AP22359353444009.jpg" alt="" class="w-100 rounded">
+                                            </div>
+                                            <div class="text">
+                                                <span class="text-muted" style="font-size: 13px;">3 jam lalu</span>
+                                                <h5 class="fw-bolder mt-1" style="font-size: 15px;">Riwayat Kesehatan Raja Charles III, Mulai dari COVID-19 hingga</h5>
+                                            </div>
+                                        </div>
+                                    </swiper-slide>
+                                    <swiper-slide>
+                                        <div class="swiper-card" style="padding-bottom: 35px;">
+                                            <div class="img mb-2">
+                                                <img src="https://cdn1-production-images-kly.akamaized.net/hm7YlB7O9jZC1_Lv1pOaWj_kZ1Y=/190x110/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4273495/original/086642800_1672109606-AP22359353444009.jpg" alt="" class="w-100 rounded">
+                                            </div>
+                                            <div class="text">
+                                                <span class="text-muted" style="font-size: 13px;">3 jam lalu</span>
+                                                <h5 class="fw-bolder mt-1" style="font-size: 15px;">Riwayat Kesehatan Raja Charles III, Mulai dari COVID-19 hingga</h5>
+                                            </div>
+                                        </div>
+                                    </swiper-slide>
+                                    <swiper-slide>
+                                        <div class="swiper-card" style="padding-bottom: 35px;">
+                                            <div class="img mb-2">
+                                                <img src="https://cdn1-production-images-kly.akamaized.net/hm7YlB7O9jZC1_Lv1pOaWj_kZ1Y=/190x110/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4273495/original/086642800_1672109606-AP22359353444009.jpg" alt="" class="w-100 rounded">
+                                            </div>
+                                            <div class="text">
+                                                <span class="text-muted" style="font-size: 13px;">3 jam lalu</span>
+                                                <h5 class="fw-bolder mt-1" style="font-size: 15px;">Riwayat Kesehatan Raja Charles III, Mulai dari COVID-19 hingga</h5>
+                                            </div>
+                                        </div>
+                                    </swiper-slide>
+                                    <swiper-slide>
+                                        <div class="swiper-card" style="padding-bottom: 35px;">
+                                            <div class="img mb-2">
+                                                <img src="https://cdn1-production-images-kly.akamaized.net/hm7YlB7O9jZC1_Lv1pOaWj_kZ1Y=/190x110/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4273495/original/086642800_1672109606-AP22359353444009.jpg" alt="" class="w-100 rounded">
+                                            </div>
+                                            <div class="text">
+                                                <span class="text-muted" style="font-size: 13px;">3 jam lalu</span>
+                                                <h5 class="fw-bolder mt-1" style="font-size: 15px;">Riwayat Kesehatan Raja Charles III, Mulai dari COVID-19 hingga</h5>
+                                            </div>
+                                        </div>
+                                    </swiper-slide>
+                                    <swiper-slide>
+                                        <div class="swiper-card" style="padding-bottom: 35px;">
+                                            <div class="img mb-2">
+                                                <img src="https://cdn1-production-images-kly.akamaized.net/hm7YlB7O9jZC1_Lv1pOaWj_kZ1Y=/190x110/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4273495/original/086642800_1672109606-AP22359353444009.jpg" alt="" class="w-100 rounded">
+                                            </div>
+                                            <div class="text">
+                                                <span class="text-muted" style="font-size: 13px;">3 jam lalu</span>
+                                                <h5 class="fw-bolder mt-1" style="font-size: 15px;">Riwayat Kesehatan Raja Charles III, Mulai dari COVID-19 hingga</h5>
+                                            </div>
+                                        </div>
+                                    </swiper-slide>
+                                    <swiper-slide>
+                                        <div class="swiper-card" style="padding-bottom: 35px;">
+                                            <div class="img mb-2">
+                                                <img src="https://cdn1-production-images-kly.akamaized.net/hm7YlB7O9jZC1_Lv1pOaWj_kZ1Y=/190x110/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4273495/original/086642800_1672109606-AP22359353444009.jpg" alt="" class="w-100 rounded">
+                                            </div>
+                                            <div class="text">
+                                                <span class="text-muted" style="font-size: 13px;">3 jam lalu</span>
+                                                <h5 class="fw-bolder mt-1" style="font-size: 15px;">Riwayat Kesehatan Raja Charles III, Mulai dari COVID-19 hingga</h5>
+                                            </div>
+                                        </div>
+                                    </swiper-slide>
+                                    <swiper-slide>
+                                        <div class="swiper-card" style="padding-bottom: 35px;">
+                                            <div class="img mb-2">
+                                                <img src="https://cdn1-production-images-kly.akamaized.net/hm7YlB7O9jZC1_Lv1pOaWj_kZ1Y=/190x110/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4273495/original/086642800_1672109606-AP22359353444009.jpg" alt="" class="w-100 rounded">
+                                            </div>
+                                            <div class="text">
+                                                <span class="text-muted" style="font-size: 13px;">3 jam lalu</span>
+                                                <h5 class="fw-bolder mt-1" style="font-size: 15px;">Riwayat Kesehatan Raja Charles III, Mulai dari COVID-19 hingga</h5>
+                                            </div>
+                                        </div>
+                                    </swiper-slide>
+                                    <swiper-slide>
+                                        <div class="swiper-card" style="padding-bottom: 35px;">
+                                            <div class="img mb-2">
+                                                <img src="https://cdn1-production-images-kly.akamaized.net/hm7YlB7O9jZC1_Lv1pOaWj_kZ1Y=/190x110/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4273495/original/086642800_1672109606-AP22359353444009.jpg" alt="" class="w-100 rounded">
+                                            </div>
+                                            <div class="text">
+                                                <span class="text-muted" style="font-size: 13px;">3 jam lalu</span>
+                                                <h5 class="fw-bolder mt-1" style="font-size: 15px;">Riwayat Kesehatan Raja Charles III, Mulai dari COVID-19 hingga</h5>
+                                            </div>
+                                        </div>
+                                    </swiper-slide>
+                                </swiper-container>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="topik-populer mb-3">
+                        <h5 class="fw-bold mb-3" style="font-size: 17px;">TOPIK POPULER</h5>
+                        <ul class="list-group">
+                            <li class="list-group-item d-flex  align-items-center">
+                            <span class="badge rounded-pill me-3 ms-2" style="background-color: #4DC3E2;">#</span>
+                            <h5 class="fw-semibold" style="font-size: 16px; margin-top: 8px;">Pemilu 2024 <i class="fa-solid fa-circle-up" style="font-size: 12px; color: #88cf4e;"></i></h5>     
+                            </li>
+                            <li class="list-group-item d-flex  align-items-center">
+                            <span class="badge rounded-pill me-3 ms-2" style="background-color: #4DC3E2;">#</span>
+                            <h5 class="fw-semibold" style="font-size: 16px; margin-top: 8px;">Anies Baswedan <i class="fa-solid fa-circle-down" style="font-size: 12px; color: rgb(226, 53, 53);"></i></h5>     
+                            </li>
+                            <li class="list-group-item d-flex  align-items-center">
+                            <span class="badge rounded-pill me-3 ms-2" style="background-color: #4DC3E2;">#</span>
+                            <h5 class="fw-semibold" style="font-size: 16px; margin-top: 8px;">Reshuffle Kabinet <i class="fa-solid fa-circle-down" style="font-size: 12px; color: rgb(226, 53, 53)"></i></h5>     
+                            </li>
+                            <li class="list-group-item d-flex  align-items-center">
+                            <span class="badge rounded-pill me-3 ms-2" style="background-color: #4DC3E2;">#</span>
+                            <h5 class="fw-semibold" style="font-size: 16px; margin-top: 8px;">Prabowo Subianto <i class="fa-solid fa-circle-up" style="font-size: 12px; color: #88cf4e;"></i></h5>     
+                            </li>
+                            <li class="list-group-item d-flex  align-items-center">
+                            <span class="badge rounded-pill me-3 ms-2" style="background-color: #4DC3E2;">#</span>
+                            <h5 class="fw-semibold" style="font-size: 16px; margin-top: 8px;">Ganjar Pranowo <i class="fa-solid fa-circle-up" style="font-size: 12px; color: #88cf4e;"></i></h5>     
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="col-md-6 swiper mb-3 rounded bg-primary" >
+                        <swiper-container class="mySwiper swiper-initialized swiper-horizontal swiper-pointer-events swiper-backface-hidden rounded" direction="vertical" pagination="true" pagination-clickable="true" autoplay-delay="2500" autoplay-disable-on-interaction="false" style="height: 200px;">
+                
+                            <swiper-slide style="height: 200px;">
+                                <img class="rounded" src="https://shopee.co.id/inspirasi-shopee/wp-content/uploads/2019/03/Main-Image-1.jpg" alt="" style="height: 200px;" ></swiper-slide>
+                            <swiper-slide style="height: 200px;">
+                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
+                            </swiper-slide>
+                            <swiper-slide style="height: 200px;">
+                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
+                            </swiper-slide>
+                            <swiper-slide style="height: 200px;">
+                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
+                            </swiper-slide>
+                            <swiper-slide style="height: 200px;">
+                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
+                            </swiper-slide>
+                            <swiper-slide style="height: 200px;">
+                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
+                            </swiper-slide>
+                            <swiper-slide style="height: 200px;">
+                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
+                            </swiper-slide>
+                            <swiper-slide style="height: 200px;">
+                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
+                            </swiper-slide>
+                            <swiper-slide style="height: 200px;">
+                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
+                            </swiper-slide>
+                        </swiper-container
+                        >
+                    </div>
+                    <div class="col-md-6 swiper mb-3 rounded">
+                        <swiper-container class="mySwiper swiper-initialized swiper-vertical swiper-pointer-events swiper-backface-hidden rounded" direction="horizontal" pagination="true" pagination-clickable="true" autoplay-delay="2500" autoplay-disable-on-interaction="false" style="height: 200px;">
+                
+                            <swiper-slide style="height: 200px;" class="rounded">
+                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" ></swiper-slide>
+                            <swiper-slide style="height: 200px;" class="rounded">
+                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
+                            </swiper-slide>
+                            <swiper-slide style="height: 200px;" class="rounded">
+                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
+                            </swiper-slide>
+                            <swiper-slide style="height: 200px;" class="rounded">
+                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
+                            </swiper-slide>
+                            <swiper-slide style="height: 200px;" class="rounded">
+                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
+                            </swiper-slide>
+                            <swiper-slide style="height: 200px;" class="rounded">
+                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
+                            </swiper-slide>
+                            <swiper-slide style="height: 200px;" class="rounded">
+                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
+                            </swiper-slide>
+                            <swiper-slide style="height: 200px;" class="rounded">
+                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
+                            </swiper-slide>
+                            <swiper-slide style="height: 200px;" class="rounded">
+                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
+                            </swiper-slide>
+                        </swiper-container>
+                    </div>
+
+                    <div class="col spesial-konten">
+                        <h5 class="fw-bold" style="font-size: 17px;">SPESIAL KONTEN</h5>
+                        <swiper-container class="mySwiper swiper-initialized swiper-vertical swiper-pointer-events swiper-backface-hidden rounded" direction="horizontal" autoplay-delay="3500" autoplay-disable-on-interaction="false" style="height: 200px;">
+                
+                            <swiper-slide style="height: 200px;" class="rounded">
+                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" ></swiper-slide>
+                            <swiper-slide style="height: 200px;" class="rounded">
+                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
+                            </swiper-slide>
+                            <swiper-slide style="height: 200px;" class="rounded">
+                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
+                            </swiper-slide>
+                            <swiper-slide style="height: 200px;" class="rounded">
+                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
+                            </swiper-slide>
+                            <swiper-slide style="height: 200px;" class="rounded">
+                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
+                            </swiper-slide>
+                            <swiper-slide style="height: 200px;" class="rounded">
+                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
+                            </swiper-slide>
+                            <swiper-slide style="height: 200px;" class="rounded">
+                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
+                            </swiper-slide>
+                            <swiper-slide style="height: 200px;" class="rounded">
+                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
+                            </swiper-slide>
+                            <swiper-slide style="height: 200px;" class="rounded">
+                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
+                            </swiper-slide>
+                        </swiper-container>
+                        
+                    </div>
+                </div>
+
+     
+            </div>
+        </div>
+    </div>
+
+    <div class="berita-highlight">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="berita-utama-lainnya">
+                        <h5 class="fw-bold" style="font-size: 17px; margin-bottom: 18px;">PEMILU 2024</h5>
+                        <div class="swiper">
+                            <swiper-container class="mySwiper" pagination="true" pagination-clickable="true" space-between="30"slides-per-view="3" autoplay-delay="3000" >
+                                <swiper-slide>
+                                    <div class="swiper-card" style="padding-bottom: 35px;">
+                                        <div class="img mb-2">
+                                            <img src="https://cdn1-production-images-kly.akamaized.net/hm7YlB7O9jZC1_Lv1pOaWj_kZ1Y=/190x110/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4273495/original/086642800_1672109606-AP22359353444009.jpg" alt="" class="w-100 rounded">
+                                        </div>
+                                        <div class="text">
+                                            <span class="text-muted" style="font-size: 13px;">3 jam lalu</span>
+                                            <h5 class="fw-bolder mt-1" style="font-size: 15px;">Riwayat Kesehatan Raja Charles III, Mulai dari COVID-19 hingga</h5>
+                                        </div>
+                                    </div>
+                                </swiper-slide>
+                                <swiper-slide>
+                                    <div class="swiper-card" style="padding-bottom: 35px;">
+                                        <div class="img mb-2">
+                                            <img src="https://cdn1-production-images-kly.akamaized.net/hm7YlB7O9jZC1_Lv1pOaWj_kZ1Y=/190x110/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4273495/original/086642800_1672109606-AP22359353444009.jpg" alt="" class="w-100 rounded">
+                                        </div>
+                                        <div class="text">
+                                            <span class="text-muted" style="font-size: 13px;">3 jam lalu</span>
+                                            <h5 class="fw-bolder mt-1" style="font-size: 15px;">Riwayat Kesehatan Raja Charles III, Mulai dari COVID-19 hingga</h5>
+                                        </div>
+                                    </div>
+                                </swiper-slide>
+                                <swiper-slide>
+                                    <div class="swiper-card" style="padding-bottom: 35px;">
+                                        <div class="img mb-2">
+                                            <img src="https://cdn1-production-images-kly.akamaized.net/hm7YlB7O9jZC1_Lv1pOaWj_kZ1Y=/190x110/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4273495/original/086642800_1672109606-AP22359353444009.jpg" alt="" class="w-100 rounded">
+                                        </div>
+                                        <div class="text">
+                                            <span class="text-muted" style="font-size: 13px;">3 jam lalu</span>
+                                            <h5 class="fw-bolder mt-1" style="font-size: 15px;">Riwayat Kesehatan Raja Charles III, Mulai dari COVID-19 hingga</h5>
+                                        </div>
+                                    </div>
+                                </swiper-slide>
+                                <swiper-slide>
+                                    <div class="swiper-card" style="padding-bottom: 35px;">
+                                        <div class="img mb-2">
+                                            <img src="https://cdn1-production-images-kly.akamaized.net/hm7YlB7O9jZC1_Lv1pOaWj_kZ1Y=/190x110/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4273495/original/086642800_1672109606-AP22359353444009.jpg" alt="" class="w-100 rounded">
+                                        </div>
+                                        <div class="text">
+                                            <span class="text-muted" style="font-size: 13px;">3 jam lalu</span>
+                                            <h5 class="fw-bolder mt-1" style="font-size: 15px;">Riwayat Kesehatan Raja Charles III, Mulai dari COVID-19 hingga</h5>
+                                        </div>
+                                    </div>
+                                </swiper-slide>
+                                <swiper-slide>
+                                    <div class="swiper-card" style="padding-bottom: 35px;">
+                                        <div class="img mb-2">
+                                            <img src="https://cdn1-production-images-kly.akamaized.net/hm7YlB7O9jZC1_Lv1pOaWj_kZ1Y=/190x110/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4273495/original/086642800_1672109606-AP22359353444009.jpg" alt="" class="w-100 rounded">
+                                        </div>
+                                        <div class="text">
+                                            <span class="text-muted" style="font-size: 13px;">3 jam lalu</span>
+                                            <h5 class="fw-bolder mt-1" style="font-size: 15px;">Riwayat Kesehatan Raja Charles III, Mulai dari COVID-19 hingga</h5>
+                                        </div>
+                                    </div>
+                                </swiper-slide>
+                                <swiper-slide>
+                                    <div class="swiper-card" style="padding-bottom: 35px;">
+                                        <div class="img mb-2">
+                                            <img src="https://cdn1-production-images-kly.akamaized.net/hm7YlB7O9jZC1_Lv1pOaWj_kZ1Y=/190x110/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4273495/original/086642800_1672109606-AP22359353444009.jpg" alt="" class="w-100 rounded">
+                                        </div>
+                                        <div class="text">
+                                            <span class="text-muted" style="font-size: 13px;">3 jam lalu</span>
+                                            <h5 class="fw-bolder mt-1" style="font-size: 15px;">Riwayat Kesehatan Raja Charles III, Mulai dari COVID-19 hingga</h5>
+                                        </div>
+                                    </div>
+                                </swiper-slide>
+                                <swiper-slide>
+                                    <div class="swiper-card" style="padding-bottom: 35px;">
+                                        <div class="img mb-2">
+                                            <img src="https://cdn1-production-images-kly.akamaized.net/hm7YlB7O9jZC1_Lv1pOaWj_kZ1Y=/190x110/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4273495/original/086642800_1672109606-AP22359353444009.jpg" alt="" class="w-100 rounded">
+                                        </div>
+                                        <div class="text">
+                                            <span class="text-muted" style="font-size: 13px;">3 jam lalu</span>
+                                            <h5 class="fw-bolder mt-1" style="font-size: 15px;">Riwayat Kesehatan Raja Charles III, Mulai dari COVID-19 hingga</h5>
+                                        </div>
+                                    </div>
+                                </swiper-slide>
+                                <swiper-slide>
+                                    <div class="swiper-card" style="padding-bottom: 35px;">
+                                        <div class="img mb-2">
+                                            <img src="https://cdn1-production-images-kly.akamaized.net/hm7YlB7O9jZC1_Lv1pOaWj_kZ1Y=/190x110/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4273495/original/086642800_1672109606-AP22359353444009.jpg" alt="" class="w-100 rounded">
+                                        </div>
+                                        <div class="text">
+                                            <span class="text-muted" style="font-size: 13px;">3 jam lalu</span>
+                                            <h5 class="fw-bolder mt-1" style="font-size: 15px;">Riwayat Kesehatan Raja Charles III, Mulai dari COVID-19 hingga</h5>
+                                        </div>
+                                    </div>
+                                </swiper-slide>
+                                <swiper-slide>
+                                    <div class="swiper-card" style="padding-bottom: 35px;">
+                                        <div class="img mb-2">
+                                            <img src="https://cdn1-production-images-kly.akamaized.net/hm7YlB7O9jZC1_Lv1pOaWj_kZ1Y=/190x110/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4273495/original/086642800_1672109606-AP22359353444009.jpg" alt="" class="w-100 rounded">
+                                        </div>
+                                        <div class="text">
+                                            <span class="text-muted" style="font-size: 13px;">3 jam lalu</span>
+                                            <h5 class="fw-bolder mt-1" style="font-size: 15px;">Riwayat Kesehatan Raja Charles III, Mulai dari COVID-19 hingga</h5>
+                                        </div>
+                                    </div>
+                                </swiper-slide>
+                            </swiper-container>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="berita d-flex pb-3 pt-3" style="border-bottom: 1px solid rgb(238, 238, 238);">
+                        <div class="img-berita me-3">
+                            <img src="https://cdn0-production-images-kly.akamaized.net/6_TUtHiwTEACJqQsRtSK_eJeWb8=/200x112/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/3183850/original/032527500_1595121283-200719_BOLA_GANJIL_300x-100.jpg" alt="" class="rounded">
+                        </div>
+                        <div class="text-berita ">
+                            <h5 style=" font-size: 12px;color: #4DC3E2;"class="bold">BOLA</h5>
+                            <h5 style=" font-size: 19px;font-weight: bold;">Bola Ganjil: Lupa Daftar Ikut Kompetisi, Klub Inggris Sampai Hampir Bubar</h5>
+                            <h5 style=" font-size: 14px;letter-spacing: 0.1px; color: rgb(143, 143, 143);font-weight: normal;">Seperti manusia kebanyakan, pesepak bola juga bisa lupa. Kegagalan mereka dalam mengingat pun menghadirkan sejumlah kisah unik.</h5>
+
+                        </div>
+                    </div>
+                    <div class="berita d-flex pb-3 pt-3" style="border-bottom: 1px solid rgb(238, 238, 238);">
+                        <div class="img-berita me-3">
+                            <img src="https://cdn0-production-images-kly.akamaized.net/6_TUtHiwTEACJqQsRtSK_eJeWb8=/200x112/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/3183850/original/032527500_1595121283-200719_BOLA_GANJIL_300x-100.jpg" alt="" class="rounded">
+                        </div>
+                        <div class="text-berita ">
+                            <h5 style=" font-size: 12px;color: #4DC3E2;"class="bold">BOLA</h5>
+                            <h5 style=" font-size: 19px;font-weight: bold;">Bola Ganjil: Lupa Daftar Ikut Kompetisi, Klub Inggris Sampai Hampir Bubar</h5>
+                            <h5 style=" font-size: 14px;letter-spacing: 0.1px; color: rgb(143, 143, 143);font-weight: normal;">Seperti manusia kebanyakan, pesepak bola juga bisa lupa. Kegagalan mereka dalam mengingat pun menghadirkan sejumlah kisah unik.</h5>
+
+                        </div>
+                    </div>
+                    <div class="berita d-flex pb-3 pt-3" style="border-bottom: 1px solid rgb(238, 238, 238);">
+                        <div class="img-berita me-3">
+                            <img src="https://cdn0-production-images-kly.akamaized.net/6_TUtHiwTEACJqQsRtSK_eJeWb8=/200x112/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/3183850/original/032527500_1595121283-200719_BOLA_GANJIL_300x-100.jpg" alt="" class="rounded">
+                        </div>
+                        <div class="text-berita ">
+                            <h5 style=" font-size: 12px;color: #4DC3E2;"class="bold">BOLA</h5>
+                            <h5 style=" font-size: 19px;font-weight: bold;">Bola Ganjil: Lupa Daftar Ikut Kompetisi, Klub Inggris Sampai Hampir Bubar</h5>
+                            <h5 style=" font-size: 14px;letter-spacing: 0.1px; color: rgb(143, 143, 143);font-weight: normal;">Seperti manusia kebanyakan, pesepak bola juga bisa lupa. Kegagalan mereka dalam mengingat pun menghadirkan sejumlah kisah unik.</h5>
+
+                        </div>
+                    </div>
+                    <div class="berita d-flex pb-3 pt-3" style="border-bottom: 1px solid rgb(238, 238, 238);">
+                        <div class="img-berita me-3">
+                            <img src="https://cdn0-production-images-kly.akamaized.net/6_TUtHiwTEACJqQsRtSK_eJeWb8=/200x112/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/3183850/original/032527500_1595121283-200719_BOLA_GANJIL_300x-100.jpg" alt="" class="rounded">
+                        </div>
+                        <div class="text-berita ">
+                            <h5 style=" font-size: 12px;color: #4DC3E2;"class="bold">BOLA</h5>
+                            <h5 style=" font-size: 19px;font-weight: bold;">Bola Ganjil: Lupa Daftar Ikut Kompetisi, Klub Inggris Sampai Hampir Bubar</h5>
+                            <h5 style=" font-size: 14px;letter-spacing: 0.1px; color: rgb(143, 143, 143);font-weight: normal;">Seperti manusia kebanyakan, pesepak bola juga bisa lupa. Kegagalan mereka dalam mengingat pun menghadirkan sejumlah kisah unik.</h5>
+
+                        </div>
+                    </div>
+                    <div class="berita d-flex pb-3 pt-3" style="border-bottom: 1px solid rgb(238, 238, 238);">
+                        <div class="img-berita me-3">
+                            <img src="https://cdn0-production-images-kly.akamaized.net/6_TUtHiwTEACJqQsRtSK_eJeWb8=/200x112/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/3183850/original/032527500_1595121283-200719_BOLA_GANJIL_300x-100.jpg" alt="" class="rounded">
+                        </div>
+                        <div class="text-berita ">
+                            <h5 style=" font-size: 12px;color: #4DC3E2;"class="bold">BOLA</h5>
+                            <h5 style=" font-size: 19px;font-weight: bold;">Bola Ganjil: Lupa Daftar Ikut Kompetisi, Klub Inggris Sampai Hampir Bubar</h5>
+                            <h5 style=" font-size: 14px;letter-spacing: 0.1px; color: rgb(143, 143, 143);font-weight: normal;">Seperti manusia kebanyakan, pesepak bola juga bisa lupa. Kegagalan mereka dalam mengingat pun menghadirkan sejumlah kisah unik.</h5>
+
+                        </div>
+                    </div>
+
+                    <div class="video-pilihan mt-4 mb-4">
+                        <h5 class="fw-bold mb-3" style="font-size: 17px;">VIDEO PILIHAN</h5>
+                        <div class="row">
+                            <div class="video d-flex">
+                                <div class="video-thumb rounded me-3">
+                                    <iframe class="rounded" width="430px" height="250px" src="https://www.youtube.com/embed/42CSCx2pZsM?si=nMsvphvXIDeV6mmJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                </div>
+                                <div class="video-text">
+                                    <h5 class="fw-bold" style="font-size: 25px;">VIDEO: DEBAT PAMUNGKAS CALON PRESIDEN INDONESIA 2024, 04 FEBURARI 2024 </h5>
+                                    <p style="font-size: 15px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos ducimus deserunt aut dolorum quia voluptate ratione saepe harum.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row d-flex">
+                            <div class="col">
+                                <iframe class="rounded" width="164px" height="100px" src="https://www.youtube.com/embed/42CSCx2pZsM?si=nMsvphvXIDeV6mmJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                <h5 style="font-size: 14px;">VIDEO: Bukan di Jepang Pasar Edamame Terbesar Ternyata Ada</h5>
+                            </div>
+                            <div class="col">
+                                <iframe class="rounded" width="164px" height="100px" src="https://www.youtube.com/embed/42CSCx2pZsM?si=nMsvphvXIDeV6mmJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                <h5 style="font-size: 14px;">VIDEO: Bukan di Jepang Pasar Edamame Terbesar Ternyata Ada</h5>
+                            </div>
+                            <div class="col">
+                                <iframe class="rounded" width="164px" height="100px" src="https://www.youtube.com/embed/42CSCx2pZsM?si=nMsvphvXIDeV6mmJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                <h5 style="font-size: 14px;">VIDEO: Bukan di Jepang Pasar Edamame Terbesar Ternyata Ada</h5>
+                            </div>
+                            <div class="col">
+                                <iframe class="rounded" width="164px" height="100px" src="https://www.youtube.com/embed/42CSCx2pZsM?si=nMsvphvXIDeV6mmJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                <h5 style="font-size: 14px;">VIDEO: Bukan di Jepang Pasar Edamame Terbesar Ternyata Ada</h5>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="berita d-flex pb-3 pt-3" style="border-bottom: 1px solid rgb(238, 238, 238);">
+                        <div class="img-berita me-3">
+                            <img src="https://cdn0-production-images-kly.akamaized.net/6_TUtHiwTEACJqQsRtSK_eJeWb8=/200x112/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/3183850/original/032527500_1595121283-200719_BOLA_GANJIL_300x-100.jpg" alt="" class="rounded">
+                        </div>
+                        <div class="text-berita ">
+                            <h5 style=" font-size: 12px;color: #4DC3E2;"class="bold">BOLA</h5>
+                            <h5 style=" font-size: 19px;font-weight: bold;">Bola Ganjil: Lupa Daftar Ikut Kompetisi, Klub Inggris Sampai Hampir Bubar</h5>
+                            <h5 style=" font-size: 14px;letter-spacing: 0.1px; color: rgb(143, 143, 143);font-weight: normal;">Seperti manusia kebanyakan, pesepak bola juga bisa lupa. Kegagalan mereka dalam mengingat pun menghadirkan sejumlah kisah unik.</h5>
+
+                        </div>
+                    </div>
+                    <div class="berita d-flex pb-3 pt-3" style="border-bottom: 1px solid rgb(238, 238, 238);">
+                        <div class="img-berita me-3">
+                            <img src="https://cdn0-production-images-kly.akamaized.net/6_TUtHiwTEACJqQsRtSK_eJeWb8=/200x112/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/3183850/original/032527500_1595121283-200719_BOLA_GANJIL_300x-100.jpg" alt="" class="rounded">
+                        </div>
+                        <div class="text-berita ">
+                            <h5 style=" font-size: 12px;color: #4DC3E2;"class="bold">BOLA</h5>
+                            <h5 style=" font-size: 19px;font-weight: bold;">Bola Ganjil: Lupa Daftar Ikut Kompetisi, Klub Inggris Sampai Hampir Bubar</h5>
+                            <h5 style=" font-size: 14px;letter-spacing: 0.1px; color: rgb(143, 143, 143);font-weight: normal;">Seperti manusia kebanyakan, pesepak bola juga bisa lupa. Kegagalan mereka dalam mengingat pun menghadirkan sejumlah kisah unik.</h5>
+
+                        </div>
+                    </div>
+                    <div class="berita d-flex pb-3 pt-3" style="border-bottom: 1px solid rgb(238, 238, 238);">
+                        <div class="img-berita me-3">
+                            <img src="https://cdn0-production-images-kly.akamaized.net/6_TUtHiwTEACJqQsRtSK_eJeWb8=/200x112/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/3183850/original/032527500_1595121283-200719_BOLA_GANJIL_300x-100.jpg" alt="" class="rounded">
+                        </div>
+                        <div class="text-berita ">
+                            <h5 style=" font-size: 12px;color: #4DC3E2;"class="bold">BOLA</h5>
+                            <h5 style=" font-size: 19px;font-weight: bold;">Bola Ganjil: Lupa Daftar Ikut Kompetisi, Klub Inggris Sampai Hampir Bubar</h5>
+                            <h5 style=" font-size: 14px;letter-spacing: 0.1px; color: rgb(143, 143, 143);font-weight: normal;">Seperti manusia kebanyakan, pesepak bola juga bisa lupa. Kegagalan mereka dalam mengingat pun menghadirkan sejumlah kisah unik.</h5>
+
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-lg-4 ">
+                    <div class="berita-populer mb-4">
+                        <h5 class="fw-bold" style="font-size: 17px; margin-bottom: 18px;">BERITA UTAMA LAINNYA</h5>
+                        <img src="https://cdn0-production-images-kly.akamaized.net/5-SB8RwDNoukhqUknRuRY4X6KDk=/300x172/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/thumbnails/4736307/original/064408900_1707213235-viral-pedagang-sapi-diduga-diintimidasi-usai-tolak-tawaran-harga-murah-calon-pembeli-tuai-pro-kontra-21519b.jpg" alt="" class="w-100 mb-2">
+                        <div class="body-berita-populer">
+                            <div class="baris d-flex mb-2">
+                                <div class="kolom">
+                                    <img src="https://cdn0-production-images-kly.akamaized.net/5-SB8RwDNoukhqUknRuRY4X6KDk=/300x172/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/thumbnails/4736307/original/064408900_1707213235-viral-pedagang-sapi-diduga-diintimidasi-usai-tolak-tawaran-harga-murah-calon-pembeli-tuai-pro-kontra-21519b.jpg" alt="" width="85%" class="rounded">
+                                </div>
+                                <div class="kolom" style="margin-left: -10px;">
+                                    <h5 class="fw-bold" style="font-size: 12px; color:#4DC3E2;">HOT</h5>
+                                    <h5 class="fw-bold" style="font-size: 14px;">VIDEO: Viral Pedagang Sapi Diduga Diintimidasi Usai</h5>
+                                </div>
+                            </div>
+                            <div class="baris d-flex mb-2">
+                                <div class="kolom">
+                                    <img src="https://cdn0-production-images-kly.akamaized.net/5-SB8RwDNoukhqUknRuRY4X6KDk=/300x172/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/thumbnails/4736307/original/064408900_1707213235-viral-pedagang-sapi-diduga-diintimidasi-usai-tolak-tawaran-harga-murah-calon-pembeli-tuai-pro-kontra-21519b.jpg" alt="" width="85%" class="rounded">
+                                </div>
+                                <div class="kolom" style="margin-left: -10px;">
+                                    <h5 class="fw-bold" style="font-size: 12px; color:#4DC3E2;">HOT</h5>
+                                    <h5 class="fw-bold" style="font-size: 14px;">VIDEO: Viral Pedagang Sapi Diduga Diintimidasi Usai</h5>
+                                </div>
+                            </div>
+                            <div class="baris d-flex mb-2">
+                                <div class="kolom">
+                                    <img src="https://cdn0-production-images-kly.akamaized.net/5-SB8RwDNoukhqUknRuRY4X6KDk=/300x172/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/thumbnails/4736307/original/064408900_1707213235-viral-pedagang-sapi-diduga-diintimidasi-usai-tolak-tawaran-harga-murah-calon-pembeli-tuai-pro-kontra-21519b.jpg" alt="" width="85%" class="rounded">
+                                </div>
+                                <div class="kolom" style="margin-left: -10px;">
+                                    <h5 class="fw-bold" style="font-size: 12px; color:#4DC3E2;">HOT</h5>
+                                    <h5 class="fw-bold" style="font-size: 14px;">VIDEO: Viral Pedagang Sapi Diduga Diintimidasi Usai</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="baris d-flex justify-content-between">
+                        <h5 class="fw-bold" style="font-size: 17px; margin-bottom: 18px;">POPULER</h5>
+                        <p class="text-muted" style="font-size: 13px;">Lihat Semua <i class="fa-solid fa-angle-right" style="color: #4DC3E2; "></i></p>
+                    </div>
+                    <div class="berita-populer border">        
+                        <img src="https://cdn0-production-images-kly.akamaized.net/5-SB8RwDNoukhqUknRuRY4X6KDk=/300x172/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/thumbnails/4736307/original/064408900_1707213235-viral-pedagang-sapi-diduga-diintimidasi-usai-tolak-tawaran-harga-murah-calon-pembeli-tuai-pro-kontra-21519b.jpg" alt="" class="w-100 mb-2">
+                        <div class="body-berita-populer">
+                            <div class="baris d-flex">
+                                <div class="kolom text-center" style="width: 100px;">
+                                    <h1 class="fw-bold" style="color: #DDDDDD;">1</h1>
+                                </div>
+                                <div class="kolom">
+                                    <h5 class="fw-bold" style="font-size: 12px; color:#4DC3E2;">HOT</h5>
+                                    <h5 class="fw-bold" style="font-size: 14px;">VIDEO: Viral Pedagang Sapi Diduga Diintimidasi Usai</h5>
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="baris d-flex">
+                                <div class="kolom text-center" style="width: 100px;">
+                                    <h1 class="fw-bold" style="color: #DDDDDD;">2</h1>
+                                </div>
+                                <div class="kolom">
+                                    <h5 class="fw-bold" style="font-size: 12px; color:#4DC3E2;">HOT</h5>
+                                    <h5 class="fw-bold" style="font-size: 14px;">VIDEO: Viral Pedagang Sapi Diduga Diintimidasi Usai</h5>
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="baris d-flex">
+                                <div class="kolom text-center" style="width: 100px;">
+                                    <h1 class="fw-bold" style="color: #DDDDDD;">3</h1>
+                                </div>
+                                <div class="kolom">
+                                    <h5 class="fw-bold" style="font-size: 12px; color:#4DC3E2;">HOT</h5>
+                                    <h5 class="fw-bold" style="font-size: 14px;">VIDEO: Viral Pedagang Sapi Diduga Diintimidasi Usai</h5>
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="baris d-flex">
+                                <div class="kolom text-center" style="width: 100px;">
+                                    <h1 class="fw-bold" style="color: #DDDDDD;">4</h1>
+                                </div>
+                                <div class="kolom">
+                                    <h5 class="fw-bold" style="font-size: 12px; color:#4DC3E2;">HOT</h5>
+                                    <h5 class="fw-bold" style="font-size: 14px;">VIDEO: Viral Pedagang Sapi Diduga Diintimidasi Usai</h5>
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="baris d-flex">
+                                <div class="kolom text-center" style="width: 100px;">
+                                    <h1 class="fw-bold" style="color: #DDDDDD;">5</h1>
+                                </div>
+                                <div class="kolom">
+                                    <h5 class="fw-bold" style="font-size: 12px; color:#4DC3E2;">HOT</h5>
+                                    <h5 class="fw-bold" style="font-size: 14px;">VIDEO: Viral Pedagang Sapi Diduga Diintimidasi Usai</h5>
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="baris d-flex">
+                                <div class="kolom text-center" style="width: 100px;">
+                                    <h1 class="fw-bold" style="color: #DDDDDD;">6</h1>
+                                </div>
+                                <div class="kolom">
+                                    <h5 class="fw-bold" style="font-size: 12px; color:#4DC3E2;">HOT</h5>
+                                    <h5 class="fw-bold" style="font-size: 14px;">VIDEO: Viral Pedagang Sapi Diduga Diintimidasi Usai</h5>
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="baris d-flex">
+                                <div class="kolom text-center" style="width: 100px;">
+                                    <h1 class="fw-bold" style="color: #DDDDDD;">7</h1>
+                                </div>
+                                <div class="kolom">
+                                    <h5 class="fw-bold" style="font-size: 12px; color:#4DC3E2;">HOT</h5>
+                                    <h5 class="fw-bold" style="font-size: 14px;">VIDEO: Viral Pedagang Sapi Diduga Diintimidasi Usai</h5>
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="baris d-flex">
+                                <div class="kolom text-center" style="width: 100px;">
+                                    <h1 class="fw-bold" style="color: #DDDDDD;">8</h1>
+                                </div>
+                                <div class="kolom">
+                                    <h5 class="fw-bold" style="font-size: 12px; color:#4DC3E2;">HOT</h5>
+                                    <h5 class="fw-bold" style="font-size: 14px;">VIDEO: Viral Pedagang Sapi Diduga Diintimidasi Usai</h5>
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="baris d-flex">
+                                <div class="kolom text-center" style="width: 100px;">
+                                    <h1 class="fw-bold" style="color: #DDDDDD;">9</h1>
+                                </div>
+                                <div class="kolom">
+                                    <h5 class="fw-bold" style="font-size: 12px; color:#4DC3E2;">HOT</h5>
+                                    <h5 class="fw-bold" style="font-size: 14px;">VIDEO: Viral Pedagang Sapi Diduga Diintimidasi Usai</h5>
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="baris d-flex">
+                                <div class="kolom text-center" style="width: 100px;">
+                                    <h1 class="fw-bold" style="color: #DDDDDD;">10</h1>
+                                </div>
+                                <div class="kolom">
+                                    <h5 class="fw-bold" style="font-size: 12px; color:#4DC3E2;">HOT</h5>
+                                    <h5 class="fw-bold" style="font-size: 14px;">VIDEO: Viral Pedagang Sapi Diduga Diintimidasi Usai</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer bg-dark text-white mt-5">
+        <div class="container">
+            <footer class="py-5">
+                <div class="row">
+                    <div class="col-lg-5 col-md-5 mb-3">
+                    <img src="logo-trans.png" alt="" style="width: 55%;" class="mb-3">
+                    <p class="text-muted">Media Digital Kota Cirebon <br> Jl. Kedawung Regency No.12 Kota Cirebon, 45135</p>
+                    <div class="social-media-icon">
+                        <i class="fa-brands fa-facebook-f text-secondary me-3" style="font-size: 18px;"></i>
+                        <i class="fa-brands fa-twitter text-secondary me-3" style="font-size: 18px;"></i>
+                        <i class="fa-brands fa-instagram text-secondary me-3" style="font-size: 18px;"></i>
+                        <i class="fa-brands fa-youtube text-secondary me-3" style="font-size: 18px;"></i>
+                        <i class="fa-brands fa-tiktok text-secondary me-3" style="font-size: 18px;"></i>
+                    </div>
+                    </div>
+                    <div class="col-lg-2 col-md-2 mb-3">
+                    <h5 style="font-size: 19px;" class="mb-3">Pranala</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Tentang Kami</a></li>
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Masuk</a></li>
+                    </ul>
+                    </div>
+                    <div class="col-lg-5 col-md-5 mb-3">
+                        <form>
+                            <h5 style="font-size: 19px;" class="mb-3">Berlangganan berita kami</h5>
+                            <p style="font-size: 14px;">Langganan berita yang baru dan menarik dari kami</p>
+                            <div class="d-flex flex-column flex-sm-row w-100 gap-2">
+                            <label for="newsletter1" class="visually-hidden">Email</label>
+                            <input id="newsletter1" type="text" class="form-control" placeholder="Masukkan email kamu">
+                            <button class="btn btn-primary" type="button">Langganan</button>
+                            </div>
+                        </form>
+                    </div>
+                <div class="baris border-top  text-center ">
+                    <p class="text-muted pt-5">Copyright © 2024 E Media Entertaiment. All rights reserved.</p>
+                </div>
+            </footer>
+        </div>
+    </div>
+    
+
+    
+
+    <script>
+        const tabsBox = document.querySelector(".tabs-box"),
+        allTabs = tabsBox.querySelectorAll(".tab"),
+        arrowIcons = document.querySelectorAll(".icon i");
+
+        let isDragging = false;
+
+        const handleIcons = (scrollVal) => {
+            let maxScrollableWidth = tabsBox.scrollWidth - tabsBox.clientWidth;
+            arrowIcons[0].parentElement.style.display = scrollVal <= 0 ? "none" : "flex";
+            arrowIcons[1].parentElement.style.display = maxScrollableWidth - scrollVal <= 1 ? "none" : "flex";
+        }
+
+        arrowIcons.forEach(icon => {
+            icon.addEventListener("click", () => {
+                // if clicked icon is left, reduce 350 from tabsBox scrollLeft else add
+                let scrollWidth = tabsBox.scrollLeft += icon.id === "left" ? -340 : 340;
+                handleIcons(scrollWidth);
+            });
+        });
+
+        allTabs.forEach(tab => {
+            tab.addEventListener("click", () => {
+                tabsBox.querySelector(".active").classList.remove("active");
+                tab.classList.add("active");
+            });
+        });
+
+        const dragging = (e) => {
+            if(!isDragging) return;
+            tabsBox.classList.add("dragging");
+            tabsBox.scrollLeft -= e.movementX;
+            handleIcons(tabsBox.scrollLeft)
+        }
+
+        const dragStop = () => {
+            isDragging = false;
+            tabsBox.classList.remove("dragging");
+        }
+
+        tabsBox.addEventListener("mousedown", () => isDragging = true);
+        tabsBox.addEventListener("mousemove", dragging);
+        document.addEventListener("mouseup", dragStop);
+    </script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  </body>
+</html>
