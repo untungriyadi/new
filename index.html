@@ -96,10 +96,10 @@
 
         /* swiper */
 
-        .swiper-container {
+        /* .swiper-container {
         width: 100%;
         height: 100%;
-        }
+        } */
 
         .swiper-slide {
         text-align: center;
@@ -110,12 +110,12 @@
         align-items: center;
         }
 
-        .swiper-slide img {
+        /* .swiper-slide img {
         display: block;
         width: 100%;
         height: 100%;
-        /* object-fit: cover; */
-        }
+        object-fit: cover;
+        } */
 
     </style>
   </head>
@@ -144,13 +144,13 @@
         </div>
     </div>
     
-    <div class="header" style="margin-top: 70px;">
+    <div class="header" style="margin-top: 70px;" id="header">
         <div class="container">
             <div class="baris d-flex align-items-center">
-                <div class="kolom me-5">
-                    <img src="logo.png" alt="" placeholder="mau baca berita apa hari ini?" class="img-fluid" style="width: 300px;">
+                <div class="kolom me-3">
+                    <img src="logo.png" alt="" placeholder="mau baca berita apa hari ini?" class="img-fluid" style="width: 350px;">
                 </div>
-                <div class="kolom  w-100 d-none d-sm-none d-md-block">
+                <div class="kolom  w-100 d-none d-sm-none d-md-block ">
                     <div class="input-group">
                         <input type="text" placeholder="Mau baca berita apa hari ini?" style="font-size: 13px;padding-top: 13px ;padding-bottom: 13px; padding-left: 25px;padding-right:40%; border-radius: 100px; border: 1px solid lightgray;" class="me-2">
                         <button style="padding: 13px 20px; border-radius: 100px; font-size: 13px; background-color: #4DC3E2; border: none; color: white;"><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -340,103 +340,133 @@
                             </li>
                         </ul>
                     </div>
-                    
-                    <div class="col-md-6 swiper mb-3 rounded bg-primary" >
-                        <swiper-container class="mySwiper swiper-initialized swiper-horizontal swiper-pointer-events swiper-backface-hidden rounded" direction="vertical" pagination="true" pagination-clickable="true" autoplay-delay="2500" autoplay-disable-on-interaction="false" style="height: 200px;">
-                
-                            <swiper-slide style="height: 200px;">
-                                <img class="rounded" src="https://shopee.co.id/inspirasi-shopee/wp-content/uploads/2019/03/Main-Image-1.jpg" alt="" style="height: 200px;" ></swiper-slide>
-                            <swiper-slide style="height: 200px;">
-                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
-                            </swiper-slide>
-                            <swiper-slide style="height: 200px;">
-                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
-                            </swiper-slide>
-                            <swiper-slide style="height: 200px;">
-                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
-                            </swiper-slide>
-                            <swiper-slide style="height: 200px;">
-                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
-                            </swiper-slide>
-                            <swiper-slide style="height: 200px;">
-                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
-                            </swiper-slide>
-                            <swiper-slide style="height: 200px;">
-                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
-                            </swiper-slide>
-                            <swiper-slide style="height: 200px;">
-                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
-                            </swiper-slide>
-                            <swiper-slide style="height: 200px;">
-                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
-                            </swiper-slide>
-                        </swiper-container
-                        >
-                    </div>
-                    <div class="col-md-6 swiper mb-3 rounded">
-                        <swiper-container class="mySwiper swiper-initialized swiper-vertical swiper-pointer-events swiper-backface-hidden rounded" direction="horizontal" pagination="true" pagination-clickable="true" autoplay-delay="2500" autoplay-disable-on-interaction="false" style="height: 200px;">
-                
-                            <swiper-slide style="height: 200px;" class="rounded">
-                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" ></swiper-slide>
-                            <swiper-slide style="height: 200px;" class="rounded">
-                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
-                            </swiper-slide>
-                            <swiper-slide style="height: 200px;" class="rounded">
-                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
-                            </swiper-slide>
-                            <swiper-slide style="height: 200px;" class="rounded">
-                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
-                            </swiper-slide>
-                            <swiper-slide style="height: 200px;" class="rounded">
-                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
-                            </swiper-slide>
-                            <swiper-slide style="height: 200px;" class="rounded">
-                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
-                            </swiper-slide>
-                            <swiper-slide style="height: 200px;" class="rounded">
-                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
-                            </swiper-slide>
-                            <swiper-slide style="height: 200px;" class="rounded">
-                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
-                            </swiper-slide>
-                            <swiper-slide style="height: 200px;" class="rounded">
-                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
-                            </swiper-slide>
-                        </swiper-container>
-                    </div>
 
-                    <div class="col spesial-konten">
-                        <h5 class="fw-bold" style="font-size: 17px;">SPESIAL KONTEN</h5>
-                        <swiper-container class="mySwiper swiper-initialized swiper-vertical swiper-pointer-events swiper-backface-hidden rounded" direction="horizontal" autoplay-delay="3500" autoplay-disable-on-interaction="false" style="height: 200px;">
-                
-                            <swiper-slide style="height: 200px;" class="rounded">
-                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" ></swiper-slide>
-                            <swiper-slide style="height: 200px;" class="rounded">
-                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
-                            </swiper-slide>
-                            <swiper-slide style="height: 200px;" class="rounded">
-                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
-                            </swiper-slide>
-                            <swiper-slide style="height: 200px;" class="rounded">
-                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
-                            </swiper-slide>
-                            <swiper-slide style="height: 200px;" class="rounded">
-                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
-                            </swiper-slide>
-                            <swiper-slide style="height: 200px;" class="rounded">
-                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
-                            </swiper-slide>
-                            <swiper-slide style="height: 200px;" class="rounded">
-                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
-                            </swiper-slide>
-                            <swiper-slide style="height: 200px;" class="rounded">
-                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
-                            </swiper-slide>
-                            <swiper-slide style="height: 200px;" class="rounded">
-                                <img class="rounded" src="https://cdn1-production-images-kly.akamaized.net/0hVhUUAlvoo4KIdz8Baw7fVZo2M=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4654320/original/054640000_1700369941-larangan_kampanye_politik_di_CFD-angga_5.jpg" alt="" style="height: 200px;" >
-                            </swiper-slide>
-                        </swiper-container>
-                        
+                    <swiper-container class="mb-3 mySwiper swiper-initialized swiper-horizontal swiper-pointer-events swiper-backface-hidden" direction="vertical" pagination="true" pagination-clickable="true" autoplay-delay="2500" autoplay-disable-on-interaction="false" style="height: 200px;">
+                        <swiper-slide>
+                            <img class="img-fluid w-100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJJy1Mujw9MghGK82FDHh2GsST3kbb3PGDPA&usqp=CAU" alt="">
+                        </swiper-slide>
+                        <swiper-slide>
+                            <img class="img-fluid w-100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSDl323pvbvhHa5lk-5nlySbXMMiIl5k0rtQ&usqp=CAU" alt="">
+                        </swiper-slide>
+                        <swiper-slide>
+                            <img class="img-fluid w-100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSDl323pvbvhHa5lk-5nlySbXMMiIl5k0rtQ&usqp=CAU" alt="">
+                        </swiper-slide>
+                        <swiper-slide>
+                            <img class="img-fluid w-100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSDl323pvbvhHa5lk-5nlySbXMMiIl5k0rtQ&usqp=CAU" alt="">
+                        </swiper-slide>
+                        <swiper-slide>
+                            <img class="img-fluid w-100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSDl323pvbvhHa5lk-5nlySbXMMiIl5k0rtQ&usqp=CAU" alt="">
+                        </swiper-slide>
+                        <swiper-slide>
+                            <img class="img-fluid w-100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSDl323pvbvhHa5lk-5nlySbXMMiIl5k0rtQ&usqp=CAU" alt="">
+                        </swiper-slide>
+                        <swiper-slide>
+                            <img class="img-fluid w-100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSDl323pvbvhHa5lk-5nlySbXMMiIl5k0rtQ&usqp=CAU" alt="">
+                        </swiper-slide>
+                        <swiper-slide>
+                            <img class="img-fluid w-100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSDl323pvbvhHa5lk-5nlySbXMMiIl5k0rtQ&usqp=CAU" alt="">
+                        </swiper-slide>
+                        <swiper-slide>
+                            <img class="img-fluid w-100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSDl323pvbvhHa5lk-5nlySbXMMiIl5k0rtQ&usqp=CAU" alt="">
+                        </swiper-slide>
+                    </swiper-container>
+                    <!-- <swiper-container class="mb-3 mySwiper swiper-initialized swiper-vertical swiper-pointer-events swiper-backface-hidden" direction="horizontal" pagination="true" pagination-clickable="true" autoplay-delay="2500" autoplay-disable-on-interaction="false" style="height: 200px;">
+                        <swiper-slide>
+                            <img class="img-fluid w-100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJJy1Mujw9MghGK82FDHh2GsST3kbb3PGDPA&usqp=CAU" alt="">
+                        </swiper-slide>
+                        <swiper-slide>
+                            <img class="img-fluid w-100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSDl323pvbvhHa5lk-5nlySbXMMiIl5k0rtQ&usqp=CAU" alt="">
+                        </swiper-slide>
+                        <swiper-slide>
+                            <img class="img-fluid w-100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSDl323pvbvhHa5lk-5nlySbXMMiIl5k0rtQ&usqp=CAU" alt="">
+                        </swiper-slide>
+                        <swiper-slide>
+                            <img class="img-fluid w-100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSDl323pvbvhHa5lk-5nlySbXMMiIl5k0rtQ&usqp=CAU" alt="">
+                        </swiper-slide>
+                        <swiper-slide>
+                            <img class="img-fluid w-100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSDl323pvbvhHa5lk-5nlySbXMMiIl5k0rtQ&usqp=CAU" alt="">
+                        </swiper-slide>
+                        <swiper-slide>
+                            <img class="img-fluid w-100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSDl323pvbvhHa5lk-5nlySbXMMiIl5k0rtQ&usqp=CAU" alt="">
+                        </swiper-slide>
+                        <swiper-slide>
+                            <img class="img-fluid w-100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSDl323pvbvhHa5lk-5nlySbXMMiIl5k0rtQ&usqp=CAU" alt="">
+                        </swiper-slide>
+                        <swiper-slide>
+                            <img class="img-fluid w-100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSDl323pvbvhHa5lk-5nlySbXMMiIl5k0rtQ&usqp=CAU" alt="">
+                        </swiper-slide>
+                        <swiper-slide>
+                            <img class="img-fluid w-100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSDl323pvbvhHa5lk-5nlySbXMMiIl5k0rtQ&usqp=CAU" alt="">
+                        </swiper-slide>
+                    </swiper-container>
+                    <swiper-container class="mb-3 mySwiper  autoplay-delay="4000" autoplay-disable-on-interaction="false" style="height: 200px;">
+                        <swiper-slide>
+                            <img class="img-fluid w-100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJJy1Mujw9MghGK82FDHh2GsST3kbb3PGDPA&usqp=CAU" alt="">
+                        </swiper-slide>
+                        <swiper-slide>
+                            <img class="img-fluid w-100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSDl323pvbvhHa5lk-5nlySbXMMiIl5k0rtQ&usqp=CAU" alt="">
+                        </swiper-slide>
+                        <swiper-slide>
+                            <img class="img-fluid w-100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSDl323pvbvhHa5lk-5nlySbXMMiIl5k0rtQ&usqp=CAU" alt="">
+                        </swiper-slide>
+                        <swiper-slide>
+                            <img class="img-fluid w-100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSDl323pvbvhHa5lk-5nlySbXMMiIl5k0rtQ&usqp=CAU" alt="">
+                        </swiper-slide>
+                        <swiper-slide>
+                            <img class="img-fluid w-100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSDl323pvbvhHa5lk-5nlySbXMMiIl5k0rtQ&usqp=CAU" alt="">
+                        </swiper-slide>
+                        <swiper-slide>
+                            <img class="img-fluid w-100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSDl323pvbvhHa5lk-5nlySbXMMiIl5k0rtQ&usqp=CAU" alt="">
+                        </swiper-slide>
+                        <swiper-slide>
+                            <img class="img-fluid w-100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSDl323pvbvhHa5lk-5nlySbXMMiIl5k0rtQ&usqp=CAU" alt="">
+                        </swiper-slide>
+                        <swiper-slide>
+                            <img class="img-fluid w-100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSDl323pvbvhHa5lk-5nlySbXMMiIl5k0rtQ&usqp=CAU" alt="">
+                        </swiper-slide>
+                        <swiper-slide>
+                            <img class="img-fluid w-100" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSDl323pvbvhHa5lk-5nlySbXMMiIl5k0rtQ&usqp=CAU" alt="">
+                        </swiper-slide>
+                    </swiper-container> -->
+
+                    <div class="berita-side border rounded">
+                        <div class="title">
+                            <!-- <h5 class="fw-bold" style="font-size: 17px;">BERITA PEMILU</h5> -->
+                        </div>
+                        <div class="img">
+                            <img src="https://cdn0-production-images-kly.akamaized.net/jcZgs6qqLuRjyDmaqcbqfV6XyO4=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4733878/original/010829700_1706970264-000_34HK72D.jpg" alt=""class="img-fluid">
+                        </div>
+                        <div class="text-body px-3 pt-3">
+                            <h5 class="fw-bold" style="font-size: 12px; color:#4DC3E2;">BERITA PEMILU 2024</h5>
+                            <h5 class="fw-bold mb-3" style="font-size: 15px;">Langgar Etik Karena Terima Pendaftaran Gibran, DKPP Beri Peringatan Keras ke Ketua KPU</h5>
+                            <div class="baris d-flex mb-3">
+                                <div class="kolom me-3" style="width: 200px;">
+                                    <img src="https://cdn0-production-images-kly.akamaized.net/jcZgs6qqLuRjyDmaqcbqfV6XyO4=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4733878/original/010829700_1706970264-000_34HK72D.jpg" alt=""class="img-fluid rounded">
+                                </div>
+                                <div class="kolom">
+                                    <h5 class="fw-bold" style="font-size: 12px; color:#4DC3E2;">PEMILU 2024</h5>
+                                    <h5 class="fw-bold" style="font-size: 14px;">VIDEO: Viral Pedagang Sapi Diduga Diintimidasi Usai</h5>
+                                </div>
+                            </div>
+                            <div class="baris d-flex mb-3">
+                                <div class="kolom me-3" style="width: 200px;">
+                                    <img src="https://cdn0-production-images-kly.akamaized.net/jcZgs6qqLuRjyDmaqcbqfV6XyO4=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4733878/original/010829700_1706970264-000_34HK72D.jpg" alt=""class="img-fluid rounded">
+                                </div>
+                                <div class="kolom">
+                                    <h5 class="fw-bold" style="font-size: 12px; color:#4DC3E2;">PEMILU 2024</h5>
+                                    <h5 class="fw-bold" style="font-size: 14px;">VIDEO: Viral Pedagang Sapi Diduga Diintimidasi Usai</h5>
+                                </div>
+                            </div>
+                            <div class="baris d-flex mb-3">
+                                <div class="kolom me-3" style="width: 200px;">
+                                    <img src="https://cdn0-production-images-kly.akamaized.net/jcZgs6qqLuRjyDmaqcbqfV6XyO4=/640x358/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/4733878/original/010829700_1706970264-000_34HK72D.jpg" alt=""class="img-fluid rounded">
+                                </div>
+                                <div class="kolom">
+                                    <h5 class="fw-bold" style="font-size: 12px; color:#4DC3E2;">PEMILU 2024</h5>
+                                    <h5 class="fw-bold" style="font-size: 14px;">VIDEO: Viral Pedagang Sapi Diduga Diintimidasi Usai</h5>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -563,7 +593,7 @@
                         <div class="text-berita ">
                             <h5 style=" font-size: 12px;color: #4DC3E2;"class="bold">BOLA</h5>
                             <h5 style=" font-size: 19px;font-weight: bold;">Bola Ganjil: Lupa Daftar Ikut Kompetisi, Klub Inggris Sampai Hampir Bubar</h5>
-                            <h5 style=" font-size: 14px;letter-spacing: 0.1px; color: rgb(143, 143, 143);font-weight: normal;">Seperti manusia kebanyakan, pesepak bola juga bisa lupa. Kegagalan mereka dalam mengingat pun menghadirkan sejumlah kisah unik.</h5>
+                            <p style=" font-size: 14px;letter-spacing: 0.1px; color: rgb(143, 143, 143);font-weight: normal;">Seperti manusia kebanyakan, pesepak bola juga bisa lupa. Kegagalan mereka dalam mengingat pun menghadirkan sejumlah kisah unik.</p>
 
                         </div>
                     </div>
@@ -574,7 +604,7 @@
                         <div class="text-berita ">
                             <h5 style=" font-size: 12px;color: #4DC3E2;"class="bold">BOLA</h5>
                             <h5 style=" font-size: 19px;font-weight: bold;">Bola Ganjil: Lupa Daftar Ikut Kompetisi, Klub Inggris Sampai Hampir Bubar</h5>
-                            <h5 style=" font-size: 14px;letter-spacing: 0.1px; color: rgb(143, 143, 143);font-weight: normal;">Seperti manusia kebanyakan, pesepak bola juga bisa lupa. Kegagalan mereka dalam mengingat pun menghadirkan sejumlah kisah unik.</h5>
+                            <p style=" font-size: 14px;letter-spacing: 0.1px; color: rgb(143, 143, 143);font-weight: normal;">Seperti manusia kebanyakan, pesepak bola juga bisa lupa. Kegagalan mereka dalam mengingat pun menghadirkan sejumlah kisah unik.</p>
 
                         </div>
                     </div>
@@ -585,7 +615,7 @@
                         <div class="text-berita ">
                             <h5 style=" font-size: 12px;color: #4DC3E2;"class="bold">BOLA</h5>
                             <h5 style=" font-size: 19px;font-weight: bold;">Bola Ganjil: Lupa Daftar Ikut Kompetisi, Klub Inggris Sampai Hampir Bubar</h5>
-                            <h5 style=" font-size: 14px;letter-spacing: 0.1px; color: rgb(143, 143, 143);font-weight: normal;">Seperti manusia kebanyakan, pesepak bola juga bisa lupa. Kegagalan mereka dalam mengingat pun menghadirkan sejumlah kisah unik.</h5>
+                            <p style=" font-size: 14px;letter-spacing: 0.1px; color: rgb(143, 143, 143);font-weight: normal;">Seperti manusia kebanyakan, pesepak bola juga bisa lupa. Kegagalan mereka dalam mengingat pun menghadirkan sejumlah kisah unik.</p>
 
                         </div>
                     </div>
@@ -596,7 +626,7 @@
                         <div class="text-berita ">
                             <h5 style=" font-size: 12px;color: #4DC3E2;"class="bold">BOLA</h5>
                             <h5 style=" font-size: 19px;font-weight: bold;">Bola Ganjil: Lupa Daftar Ikut Kompetisi, Klub Inggris Sampai Hampir Bubar</h5>
-                            <h5 style=" font-size: 14px;letter-spacing: 0.1px; color: rgb(143, 143, 143);font-weight: normal;">Seperti manusia kebanyakan, pesepak bola juga bisa lupa. Kegagalan mereka dalam mengingat pun menghadirkan sejumlah kisah unik.</h5>
+                            <p style=" font-size: 14px;letter-spacing: 0.1px; color: rgb(143, 143, 143);font-weight: normal;">Seperti manusia kebanyakan, pesepak bola juga bisa lupa. Kegagalan mereka dalam mengingat pun menghadirkan sejumlah kisah unik.</p>
 
                         </div>
                     </div>
@@ -607,7 +637,7 @@
                         <div class="text-berita ">
                             <h5 style=" font-size: 12px;color: #4DC3E2;"class="bold">BOLA</h5>
                             <h5 style=" font-size: 19px;font-weight: bold;">Bola Ganjil: Lupa Daftar Ikut Kompetisi, Klub Inggris Sampai Hampir Bubar</h5>
-                            <h5 style=" font-size: 14px;letter-spacing: 0.1px; color: rgb(143, 143, 143);font-weight: normal;">Seperti manusia kebanyakan, pesepak bola juga bisa lupa. Kegagalan mereka dalam mengingat pun menghadirkan sejumlah kisah unik.</h5>
+                            <p style=" font-size: 14px;letter-spacing: 0.1px; color: rgb(143, 143, 143);font-weight: normal;">Seperti manusia kebanyakan, pesepak bola juga bisa lupa. Kegagalan mereka dalam mengingat pun menghadirkan sejumlah kisah unik.</p>
 
                         </div>
                     </div>
@@ -615,31 +645,33 @@
                     <div class="video-pilihan mt-4 mb-4">
                         <h5 class="fw-bold mb-3" style="font-size: 17px;">VIDEO PILIHAN</h5>
                         <div class="row">
-                            <div class="video d-flex">
-                                <div class="video-thumb rounded me-3">
-                                    <iframe class="rounded" width="430px" height="250px" src="https://www.youtube.com/embed/42CSCx2pZsM?si=nMsvphvXIDeV6mmJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            <div class="col">
+                                <div class="video-thumb rounded ">
+                                    <iframe class="rounded" style="width: 23rem; height: 12rem;" src="https://www.youtube.com/embed/42CSCx2pZsM?si=nMsvphvXIDeV6mmJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                                 </div>
+                            </div>
+                            <div class="col">
                                 <div class="video-text">
                                     <h5 class="fw-bold" style="font-size: 25px;">VIDEO: DEBAT PAMUNGKAS CALON PRESIDEN INDONESIA 2024, 04 FEBURARI 2024 </h5>
-                                    <p style="font-size: 15px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos ducimus deserunt aut dolorum quia voluptate ratione saepe harum.</p>
+                                    <p style="font-size: 15px;" class="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos ducimus deserunt aut dolorum quia voluptate ratione saepe harum.</p>
                                 </div>
                             </div>
                         </div>
                         <div class="row d-flex">
                             <div class="col">
-                                <iframe class="rounded" width="164px" height="100px" src="https://www.youtube.com/embed/42CSCx2pZsM?si=nMsvphvXIDeV6mmJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                <iframe class="rounded mb-2" style="width: 10.3rem; height: 6rem;" src="https://www.youtube.com/embed/42CSCx2pZsM?si=nMsvphvXIDeV6mmJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                                 <h5 style="font-size: 14px;">VIDEO: Bukan di Jepang Pasar Edamame Terbesar Ternyata Ada</h5>
                             </div>
                             <div class="col">
-                                <iframe class="rounded" width="164px" height="100px" src="https://www.youtube.com/embed/42CSCx2pZsM?si=nMsvphvXIDeV6mmJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                <iframe class="rounded mb-2" style="width: 10.3rem; height: 6rem;" src="https://www.youtube.com/embed/42CSCx2pZsM?si=nMsvphvXIDeV6mmJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                                 <h5 style="font-size: 14px;">VIDEO: Bukan di Jepang Pasar Edamame Terbesar Ternyata Ada</h5>
                             </div>
                             <div class="col">
-                                <iframe class="rounded" width="164px" height="100px" src="https://www.youtube.com/embed/42CSCx2pZsM?si=nMsvphvXIDeV6mmJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                <iframe class="rounded mb-2" style="width: 10.3rem; height: 6rem;" src="https://www.youtube.com/embed/42CSCx2pZsM?si=nMsvphvXIDeV6mmJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                                 <h5 style="font-size: 14px;">VIDEO: Bukan di Jepang Pasar Edamame Terbesar Ternyata Ada</h5>
                             </div>
                             <div class="col">
-                                <iframe class="rounded" width="164px" height="100px" src="https://www.youtube.com/embed/42CSCx2pZsM?si=nMsvphvXIDeV6mmJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                <iframe class="rounded mb-2" style="width: 10.3rem; height: 6rem;" src="https://www.youtube.com/embed/42CSCx2pZsM?si=nMsvphvXIDeV6mmJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                                 <h5 style="font-size: 14px;">VIDEO: Bukan di Jepang Pasar Edamame Terbesar Ternyata Ada</h5>
                             </div>
                         </div>
@@ -653,7 +685,7 @@
                         <div class="text-berita ">
                             <h5 style=" font-size: 12px;color: #4DC3E2;"class="bold">BOLA</h5>
                             <h5 style=" font-size: 19px;font-weight: bold;">Bola Ganjil: Lupa Daftar Ikut Kompetisi, Klub Inggris Sampai Hampir Bubar</h5>
-                            <h5 style=" font-size: 14px;letter-spacing: 0.1px; color: rgb(143, 143, 143);font-weight: normal;">Seperti manusia kebanyakan, pesepak bola juga bisa lupa. Kegagalan mereka dalam mengingat pun menghadirkan sejumlah kisah unik.</h5>
+                            <p style=" font-size: 14px;letter-spacing: 0.1px; color: rgb(143, 143, 143);font-weight: normal;">Seperti manusia kebanyakan, pesepak bola juga bisa lupa. Kegagalan mereka dalam mengingat pun menghadirkan sejumlah kisah unik.</p>
 
                         </div>
                     </div>
@@ -664,7 +696,7 @@
                         <div class="text-berita ">
                             <h5 style=" font-size: 12px;color: #4DC3E2;"class="bold">BOLA</h5>
                             <h5 style=" font-size: 19px;font-weight: bold;">Bola Ganjil: Lupa Daftar Ikut Kompetisi, Klub Inggris Sampai Hampir Bubar</h5>
-                            <h5 style=" font-size: 14px;letter-spacing: 0.1px; color: rgb(143, 143, 143);font-weight: normal;">Seperti manusia kebanyakan, pesepak bola juga bisa lupa. Kegagalan mereka dalam mengingat pun menghadirkan sejumlah kisah unik.</h5>
+                            <p style=" font-size: 14px;letter-spacing: 0.1px; color: rgb(143, 143, 143);font-weight: normal;">Seperti manusia kebanyakan, pesepak bola juga bisa lupa. Kegagalan mereka dalam mengingat pun menghadirkan sejumlah kisah unik.</p>
 
                         </div>
                     </div>
@@ -675,7 +707,7 @@
                         <div class="text-berita ">
                             <h5 style=" font-size: 12px;color: #4DC3E2;"class="bold">BOLA</h5>
                             <h5 style=" font-size: 19px;font-weight: bold;">Bola Ganjil: Lupa Daftar Ikut Kompetisi, Klub Inggris Sampai Hampir Bubar</h5>
-                            <h5 style=" font-size: 14px;letter-spacing: 0.1px; color: rgb(143, 143, 143);font-weight: normal;">Seperti manusia kebanyakan, pesepak bola juga bisa lupa. Kegagalan mereka dalam mengingat pun menghadirkan sejumlah kisah unik.</h5>
+                            <p style=" font-size: 14px;letter-spacing: 0.1px; color: rgb(143, 143, 143);font-weight: normal;">Seperti manusia kebanyakan, pesepak bola juga bisa lupa. Kegagalan mereka dalam mengingat pun menghadirkan sejumlah kisah unik.</p>
 
                         </div>
                     </div>
@@ -721,7 +753,7 @@
                         <p class="text-muted" style="font-size: 13px;">Lihat Semua <i class="fa-solid fa-angle-right" style="color: #4DC3E2; "></i></p>
                     </div>
                     <div class="berita-populer border">        
-                        <img src="https://cdn0-production-images-kly.akamaized.net/5-SB8RwDNoukhqUknRuRY4X6KDk=/300x172/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/thumbnails/4736307/original/064408900_1707213235-viral-pedagang-sapi-diduga-diintimidasi-usai-tolak-tawaran-harga-murah-calon-pembeli-tuai-pro-kontra-21519b.jpg" alt="" class="w-100 mb-2">
+                        <img src="https://cdn0-production-images-kly.akamaized.net/5-SB8RwDNoukhqUknRuRY4X6KDk=/300x172/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/thumbnails/4736307/original/064408900_1707213235-viral-pedagang-sapi-diduga-diintimidasi-usai-tolak-tawaran-harga-murah-calon-pembeli-tuai-pro-kontra-21519b.jpg" alt="" class="w-100 mb-3">
                         <div class="body-berita-populer">
                             <div class="baris d-flex">
                                 <div class="kolom text-center" style="width: 100px;">
@@ -847,7 +879,7 @@
                     <div class="col-lg-2 col-md-2 mb-3">
                     <h5 style="font-size: 19px;" class="mb-3">Pranala</h5>
                     <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+                        <li class="nav-item mb-2"><a href="#header" class="nav-link p-0 text-muted">Home</a></li>
                         <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
                         <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
                         <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Tentang Kami</a></li>
